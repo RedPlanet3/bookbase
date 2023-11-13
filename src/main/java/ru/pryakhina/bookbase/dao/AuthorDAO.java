@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface AuthorDAO {
     public List<Author> getAllAuthors();
+
+    public void saveAuthor(Author author);
 }

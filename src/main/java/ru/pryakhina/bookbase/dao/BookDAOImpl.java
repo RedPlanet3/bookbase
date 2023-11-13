@@ -5,33 +5,27 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.pryakhina.bookbase.models.Author;
+import ru.pryakhina.bookbase.models.Book;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class AuthorDAOImpl implements AuthorDAO {
+public class BookDAOImpl implements BookDAO {
 
     private SessionFactory sessionFactory;
 
     @Autowired
-    public AuthorDAOImpl(SessionFactory sessionFactory) {
+    public BookDAOImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
     @Override
-    public List<Author> getAllAuthors() {
+    public List<Book> getAllBooks() {
 
         Session session = sessionFactory.getCurrentSession();
 
-        List<Author> authors = session.createQuery("from Author", Author.class)
+        List<Book> books = session.createQuery("from Book", Book.class)
                 .getResultList();
-        return authors;
-    }
-
-    @Override
-    public void saveAuthor(Author author) {
-        Session session = sessionFactory.getCurrentSession();
-        session.save(author);
+        return books;
     }
 }

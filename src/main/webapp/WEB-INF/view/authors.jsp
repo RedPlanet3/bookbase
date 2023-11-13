@@ -19,15 +19,29 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Operations</th>
     </tr>
 
 <c:forEach var="dsf" items="${allAutors}">
+    <c:url var="updateButton" value="/updateAuthor">
+
+    </c:url>
     <tr>
         <td>${dsf.authorId}</td>
         <td>${dsf.authorFullName}</td>
+        <td>
+            <input type="button" value="Update"
+                   onclick="window.location.href='/authoradd'"/>
+            <input type="button" value="Delete"
+                   onclick="window.location.href='/authoradd'"/>
+        </td>
     </tr>
 </c:forEach>
 </table>
+<br>
+<input type="button" value="Add"
+onclick="window.location.href='/authoradd'"/>
+<br><br>
 <a href="/">Back to start page</a>
 
 </body>

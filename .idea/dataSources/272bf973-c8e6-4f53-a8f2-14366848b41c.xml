@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.39">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1114</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1118</IntrospectionStateNumber>
       <ServerVersion>14.2</ServerVersion>
       <StartupTime>1699811593</StartupTime>
       <TimeZones>true ACDT
@@ -800,7 +800,7 @@ false Zulu
 13655||10|C|G
 13655||-9223372036854775808|U|G
 13655||10|U|G</Grants>
-      <IntrospectionStateNumber>1114</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1118</IntrospectionStateNumber>
       <ObjectId>17281</ObjectId>
       <Relations>sequence|table|17306|17307|1
 sequence|table|17312|17313|1
@@ -4256,7 +4256,7 @@ sequence|table|17312|17313|1
     <schema id="268" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1114</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1118</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4285,7 +4285,13 @@ sequence|table|17312|17313|1
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="273" parent="271" name="authorid">
+    <table id="273" parent="268" name="book_author">
+      <ObjectId>17318</ObjectId>
+      <StateNumber>1117</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="274" parent="271" name="authorid">
       <DataType>integer|0s</DataType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
@@ -4293,13 +4299,13 @@ sequence|table|17312|17313|1
       <StateNumber>1112</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="274" parent="271" name="authorfullname">
+    <column id="275" parent="271" name="authorfullname">
       <DataType>varchar(100)|0s</DataType>
       <Position>2</Position>
       <StateNumber>1112</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="275" parent="271" name="author_pkey">
+    <index id="276" parent="271" name="author_pkey">
       <ColNames>authorid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17310</ObjectId>
@@ -4308,7 +4314,7 @@ sequence|table|17312|17313|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="276" parent="271" name="author_pkey">
+    <key id="277" parent="271" name="author_pkey">
       <ColNames>authorid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17311</ObjectId>
@@ -4316,7 +4322,7 @@ sequence|table|17312|17313|1
       <StateNumber>1112</StateNumber>
       <UnderlyingIndexId>17310</UnderlyingIndexId>
     </key>
-    <column id="277" parent="272" name="bookid">
+    <column id="278" parent="272" name="bookid">
       <DataType>integer|0s</DataType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
@@ -4324,19 +4330,19 @@ sequence|table|17312|17313|1
       <StateNumber>1113</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="278" parent="272" name="bookname">
+    <column id="279" parent="272" name="bookname">
       <DataType>varchar(100)|0s</DataType>
       <Position>2</Position>
       <StateNumber>1113</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="279" parent="272" name="genre">
+    <column id="280" parent="272" name="genre">
       <DataType>varchar(100)|0s</DataType>
       <Position>3</Position>
       <StateNumber>1113</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="280" parent="272" name="book_pkey">
+    <index id="281" parent="272" name="book_pkey">
       <ColNames>bookid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17316</ObjectId>
@@ -4345,13 +4351,46 @@ sequence|table|17312|17313|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="281" parent="272" name="book_pkey">
+    <key id="282" parent="272" name="book_pkey">
       <ColNames>bookid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17317</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1113</StateNumber>
       <UnderlyingIndexId>17316</UnderlyingIndexId>
+    </key>
+    <column id="283" parent="273" name="authorid">
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1117</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="284" parent="273" name="bookid">
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1117</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="285" parent="273" name="book_author_pkey">
+      <ColNames>authorid
+bookid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17321</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1117</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="286" parent="273" name="book_author_pkey">
+      <ColNames>authorid
+bookid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17322</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1117</StateNumber>
+      <UnderlyingIndexId>17321</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

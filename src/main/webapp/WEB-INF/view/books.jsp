@@ -13,7 +13,21 @@
 </head>
 <body>
 <h2>Books</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre</th>
+    </tr>
 
+    <c:forEach var="dsf" items="${allBooks}">
+        <tr>
+            <td>${dsf.bookIdId}</td>
+            <td>${dsf.bookName}</td>
+            <td>${dsf.genre}</td>
+        </tr>
+    </c:forEach>
+</table>
 book: ${book.bookId} , ${book.bookName}
 
 <form:form action="/books" modelAttribute="book">

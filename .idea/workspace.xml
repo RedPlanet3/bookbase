@@ -10,8 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92737a9a-c7e5-47bb-916e-ff56f5261984" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/dao/BookDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/dao/BookDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlList" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authoradd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/272bf973-c8e6-4f53-a8f2-14366848b41c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/272bf973-c8e6-4f53-a8f2-14366848b41c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/272bf973-c8e6-4f53-a8f2-14366848b41c/storage_v2/_src_/database/bookbase.OqWCdw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/272bf973-c8e6-4f53-a8f2-14366848b41c/storage_v2/_src_/database/bookbase.OqWCdw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/controllers/myController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/controllers/myController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/controllers/myController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/controllers/MyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/dao/AuthorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/dao/AuthorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/dao/AuthorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/dao/AuthorDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/service/BookBaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/service/AuthorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/pryakhina/bookbase/service/BookBaseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authors.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/authors.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/books.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +36,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Enum" />
         <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -81,6 +93,7 @@
       <recent name="D:\JavaProj\bookbase\bookBase\src\main\webapp\WEB-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.pryakhina.bookbase.dao" />
       <recent name="ru.pryakhina.bookbase.config" />
     </key>
   </component>
@@ -292,7 +305,7 @@
       <workItem from="1699559763915" duration="2770000" />
       <workItem from="1699606025662" duration="10181000" />
       <workItem from="1699619380557" duration="13921000" />
-      <workItem from="1699807504592" duration="8081000" />
+      <workItem from="1699807504592" duration="15862000" />
     </task>
     <servers />
   </component>
