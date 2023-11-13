@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "autor")
-public class Autor {
+@Table(name = "author")
+public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,12 @@ public class Autor {
 //    @ManyToMany
 //    List<Book> booksList;
 
-    public Autor(int authorId, String authorFullName) {
+    public Author(int authorId, String authorFullName) {
         this.authorId = authorId;
         this.authorFullName = authorFullName;
     }
 
-    public Autor() {
+    public Author() {
     }
 
     public int getAuthorId() {
