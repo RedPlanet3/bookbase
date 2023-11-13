@@ -8,10 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.pryakhina.bookbase.dao.AuthorDAO;
 import ru.pryakhina.bookbase.models.Author;
 import ru.pryakhina.bookbase.models.Book;
 import ru.pryakhina.bookbase.models.Genre;
+import ru.pryakhina.bookbase.service.AuthorService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -21,7 +21,7 @@ public class myController {
 
     @Autowired
 //    @Qualifier("autorRep")
-    private AuthorDAO authorDAO;
+    private AuthorService authorService;
 
     @GetMapping("/")
     public String showStartPage(HttpServletRequest request, Model model){
@@ -54,7 +54,7 @@ public class myController {
     }
     @GetMapping("/authors")
     public String getAutors(Model model) {
-        List<Author> autorList =  authorDAO.getAllAuthors();
+        List<Author> autorList =  authorService.getAllAuthors();
         model.addAttribute("allAutors", autorList);
         return "authors";
     }
