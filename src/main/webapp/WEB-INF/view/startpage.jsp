@@ -13,16 +13,17 @@
 <body>
 <h2>Book base</h2>
 <a href="/books">Books</a>
-<br/>
+
 <a href="/authors">Autors</a>
 <br/>
-<form action="/books/" method="get">
-    <input type="number" name="bookId"
-    placeholder="Enter book id">
-    <input type="submit">
-</form>
+<%--поиск книги по id--%>
+<%--<form action="/books/" method="get">--%>
+<%--    <input type="number" name="bookId"--%>
+<%--    placeholder="Enter book id">--%>
+<%--    <input type="submit">--%>
+<%--</form>--%>
 
-<a href="/booksaddnosql">bookAddNoSql</a>
+<%--<a href="/booksaddnosql">bookAddNoSql</a>--%>
 <br/>
 
 </body>

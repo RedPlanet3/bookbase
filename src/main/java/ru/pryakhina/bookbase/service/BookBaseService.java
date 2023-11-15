@@ -9,4 +9,8 @@ public interface BookBaseService {
     public List<Author> getAllAuthors();
     public List<Book> getAllBooks();
     public void saveAuthor(Author author);
+
+    public void delAuthor(Author author);
+
+    public Author getAuthor(int authorId);
 }

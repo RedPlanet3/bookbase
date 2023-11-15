@@ -60,22 +60,33 @@ public class MyController {
     }
 
     @GetMapping("/authoradd")
-    public String autoradd (Model model) {
+    public String authoradd(Model model) {
         Author newauthor = new Author();
         model.addAttribute("newauthor", newauthor);
         return "authoradd";
     }
 
-
     @PostMapping("/saveauthor")
-    public String saveAuthor (@ModelAttribute("newauthor") Author author) {
+    public String saveAuthor (@ModelAttribute("newauthor") Author author, Model model) {
+        model.addAttribute("author", author);
         bookBaseService.saveAuthor(author);
         return "redirect:/authors";
     }
 
-    @PostMapping("/updateAuthor")
-    public String updateAuthor (@ModelAttribute("newauthor") Author author) {
-        bookBaseService.saveAuthor(author);
+    @GetMapping("/updateAuthor")
+    public String updateAuthor (
+            @ModelAttribute("newauthor") Author author,
+            Model model
+    ) {
+        Author upAuthor = bookBaseService.getAuthor(author.getAuthorId());
+        model.addAttribute("newauthor", upAuthor);
+        return "authoradd";
+    }
+
+    @GetMapping("/deleteAuthor")
+    public String deleteAuthor (@ModelAttribute("newauthor") Author delAuthor) {
+        Author deleteAuthor = bookBaseService.getAuthor(delAuthor.getAuthorId());
+        bookBaseService.delAuthor(deleteAuthor);
         return "redirect:/authors";
     }
 

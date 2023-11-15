@@ -14,6 +14,8 @@
 <body>
 
 <form:form action="saveauthor" modelAttribute="newauthor">
+    <form:hidden path="authorId"/>
+
     Name <form:input path="authorFullName"/>
 
     <input type="submit" value="OK">

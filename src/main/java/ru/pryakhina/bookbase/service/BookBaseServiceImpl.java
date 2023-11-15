@@ -37,4 +37,16 @@ public class BookBaseServiceImpl implements BookBaseService {
     public void saveAuthor(Author author) {
         authorDAO.saveAuthor(author);
     }
+
+    @Override
+    @Transactional
+    public void delAuthor(Author author) {
+        authorDAO.delAuthor(author);
+    }
+
+    @Override
+    @Transactional
+    public Author getAuthor(int authorId) {
+        return authorDAO.getAuthor(authorId);
+    }
 }
