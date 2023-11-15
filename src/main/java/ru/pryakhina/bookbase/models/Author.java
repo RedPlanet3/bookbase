@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "author")
-public class Author {
+public class Author implements Comparable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,5 +44,11 @@ public class Author {
 
     public void setAuthorFullName(String authorFullName) {
         this.authorFullName = authorFullName;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Author other = (Author)o;
+        return this.authorId - other.authorId;
     }
 }

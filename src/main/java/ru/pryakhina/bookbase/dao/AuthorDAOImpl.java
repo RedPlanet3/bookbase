@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.pryakhina.bookbase.models.Author;
 
-import javax.transaction.Transactional;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class AuthorDAOImpl implements AuthorDAO {
@@ -26,12 +28,26 @@ public class AuthorDAOImpl implements AuthorDAO {
 
         List<Author> authors = session.createQuery("from Author", Author.class)
                 .getResultList();
+        Collections.sort(authors);
         return authors;
     }
 
     @Override
     public void saveAuthor(Author author) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(author);
+        session.saveOrUpdate(author);
+    }
+
+    @Override
+    public void delAuthor(Author author) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(author);
+    }
+
+    @Override
+    public Author getAuthor(int authorId) {
+        Session session = sessionFactory.getCurrentSession();
+        Author author = session.get(Author.class, authorId);
+        return author;
     }
 }

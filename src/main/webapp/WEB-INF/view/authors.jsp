@@ -24,16 +24,19 @@
 
 <c:forEach var="dsf" items="${allAutors}">
     <c:url var="updateButton" value="/updateAuthor">
-
+        <c:param name="authorId" value="${dsf.authorId}"/>
+    </c:url>
+    <c:url var="deleteButton" value="/deleteAuthor">
+        <c:param name="authorId" value="${dsf.authorId}"/>
     </c:url>
     <tr>
         <td>${dsf.authorId}</td>
         <td>${dsf.authorFullName}</td>
         <td>
             <input type="button" value="Update"
-                   onclick="window.location.href='/authoradd'"/>
+                   onclick="window.location.href='${updateButton}'"/>
             <input type="button" value="Delete"
-                   onclick="window.location.href='/authoradd'"/>
+                   onclick="window.location.href='${deleteButton}'"/>
         </td>
     </tr>
 </c:forEach>

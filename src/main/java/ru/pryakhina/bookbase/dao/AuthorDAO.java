@@ -9,4 +9,8 @@ public interface AuthorDAO {
     public List<Author> getAllAuthors();
 
     public void saveAuthor(Author author);
+
+    public void delAuthor(Author author);
+
+    public Author getAuthor(int authorId);
 }
