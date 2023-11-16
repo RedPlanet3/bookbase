@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class MyController {
+//@RestController
+public class JspController {
 
     @Autowired
 //    @Qualifier("autorRep")
@@ -53,6 +54,12 @@ public class MyController {
         model.addAttribute("allAutors", autorList);
         return "authors";
     }
+
+//    @GetMapping("/JSauthors")
+//    public List<Author> getJSAutors(Model model) {
+//        List<Author> autorList =  bookBaseService.getAllAuthors();
+//        return autorList;
+//    }
 
     @PostMapping("/bookadd")
     public String bookAdd () {

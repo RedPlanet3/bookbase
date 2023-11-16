@@ -7,7 +7,8 @@
 //import javax.servlet.ServletException;
 //
 //
-//public class SpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+//public class SpringMvcDispatcherSerlvetIntitializer extends
+// AbstractAnnotationConfigDispatcherServletInitializer {
 //    @Override
 //    protected Class<?>[] getRootConfigClasses() {
 //        return null;
@@ -15,7 +16,7 @@
 //
 //    @Override
 //    protected Class<?>[] getServletConfigClasses() {
-//        return new Class[]{Configure.class};
+//        return new Class[]{Config.class};
 //    }
 //
 //    @Override
