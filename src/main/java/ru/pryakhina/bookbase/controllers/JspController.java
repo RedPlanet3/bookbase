@@ -49,9 +49,9 @@ public class JspController {
         return "bookid";
     }
     @GetMapping("/authors")
-    public String getAutors(Model model) {
-        List<Author> autorList =  bookBaseService.getAllAuthors();
-        model.addAttribute("allAutors", autorList);
+    public String getAuthors(Model model) {
+        List<Author> authorList =  bookBaseService.getAllAuthors();
+        model.addAttribute("allAutors", authorList);
         return "authors";
     }
 
