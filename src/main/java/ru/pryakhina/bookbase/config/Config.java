@@ -100,11 +100,4 @@
 //    hibernateTransactionManager.setSessionFactory(sessionFactory().getObject());
 //    return hibernateTransactionManager;
 //}
-////
-////    <bean id="transactionManager"
-////    class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-////        <property name="sessionFactory" ref="sessionFactory"/>
-////    </bean>
-////
-////    <tx:annotation-driven transaction-manager="transactionManager" />
-//}
+
