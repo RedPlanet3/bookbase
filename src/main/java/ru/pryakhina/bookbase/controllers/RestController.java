@@ -43,11 +43,5 @@ public class RestController {
         return author;
     }
 
-    @ExceptionHandler
-    public ResponseEntity<BookBaseIncorrectData> handleException(
-            NoSuchAuthorException exception
-    ){
-        BookBaseIncorrectData data = new BookBaseIncorrectData(exception.getMessage());
-        return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
-    }
+
 }
