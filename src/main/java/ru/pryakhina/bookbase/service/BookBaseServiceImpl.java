@@ -41,6 +41,7 @@ public class BookBaseServiceImpl implements BookBaseService {
     }
 
     @Override
+    @Transactional
     public void saveBook(Book book) {
         bookDAO.saveBook(book);
     }
