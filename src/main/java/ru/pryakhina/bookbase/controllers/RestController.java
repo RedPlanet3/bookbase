@@ -1,15 +1,10 @@
 package ru.pryakhina.bookbase.controllers;
 
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import ru.pryakhina.bookbase.exception_handing.BookBaseIncorrectData;
+import org.springframework.web.bind.annotation.*;
 import ru.pryakhina.bookbase.exception_handing.NoSuchAuthorException;
 import ru.pryakhina.bookbase.models.Author;
+import ru.pryakhina.bookbase.models.Book;
 import ru.pryakhina.bookbase.service.BookBaseService;
 
 import java.util.List;
@@ -30,6 +25,12 @@ public class RestController {
         List<Author> autorList =  bookBaseService.getAllAuthors();
         return autorList;
     }
+    @GetMapping("/books")
+    public List<Book> getBooks() {
+
+        List<Book> bookList =  bookBaseService.getAllBooks();
+        return bookList;
+    }
 
     //получение id работника из адресной строки с помощью @PathVariable
     @GetMapping("/authors/{id}")
@@ -42,12 +43,11 @@ public class RestController {
         }
         return author;
     }
+    @PostMapping("/book")
+    public int addBook(@RequestBody Book book) {
 
-    @ExceptionHandler
-    public ResponseEntity<BookBaseIncorrectData> handleException(
-            NoSuchAuthorException exception
-    ){
-        BookBaseIncorrectData data = new BookBaseIncorrectData(exception.getMessage());
-        return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
+        bookBaseService.saveBook(book);
+        return book.getBookId();
     }
+
 }

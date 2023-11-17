@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -23,9 +24,9 @@
 
     <c:forEach var="bk" items="${allBooks}">
         <tr>
-            <td>${bk.bookId}</td>
-            <td>${bk.bookName}</td>
-            <td>${bk.genre.toString()}</td>
+            <td>${dsf.bookId}</td>
+            <td>${dsf.bookName}</td>
+            <td>${dsf.genre}</td>
         </tr>
     </c:forEach>
 </table>
@@ -45,7 +46,13 @@
 
 <%--&lt;%&ndash;    &lt;%&ndash;    радиобаттон список из enum&ndash;%&gt;&ndash;%&gt;--%>
 <%--&lt;%&ndash;    Genre <form:radiobuttons path="genre"/>&ndash;%&gt;--%>
+<<<<<<< HEAD
 <%--    --%>
+=======
+
+
+
+>>>>>>> dev
 <%--    <br><br>--%>
 <%--    <input type="submit" value="OK">--%>
 <%--</form:form>--%>

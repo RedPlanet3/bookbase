@@ -1,5 +1,6 @@
 package ru.pryakhina.bookbase.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.pryakhina.bookbase.dao.AuthorDAO;
 import ru.pryakhina.bookbase.dao.BookDAO;
@@ -15,6 +16,8 @@ public class BookBaseServiceImpl implements BookBaseService {
     private AuthorDAO authorDAO;
     private BookDAO bookDAO;
 
+
+    @Autowired
     public BookBaseServiceImpl(AuthorDAO authorDAO, BookDAO bookDAO) {
         this.authorDAO = authorDAO;
         this.bookDAO = bookDAO;
@@ -36,6 +39,11 @@ public class BookBaseServiceImpl implements BookBaseService {
     @Transactional
     public void saveAuthor(Author author) {
         authorDAO.saveAuthor(author);
+    }
+
+    @Override
+    public void saveBook(Book book) {
+        bookDAO.saveBook(book);
     }
 
     @Override

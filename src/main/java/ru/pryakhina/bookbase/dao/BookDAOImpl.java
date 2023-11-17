@@ -29,4 +29,10 @@ public class BookDAOImpl implements BookDAO {
 
         return books;
     }
+
+    @Override
+    public void saveBook(Book book) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(book);
+    }
 }
