@@ -17,8 +17,9 @@ public class BookBaseServiceImpl implements BookBaseService {
     private BookDAO bookDAO;
 
     @Autowired
-    public BookBaseServiceImpl(AuthorDAO authorDAO) {
+    public BookBaseServiceImpl(AuthorDAO authorDAO, BookDAO bookDAO) {
         this.authorDAO = authorDAO;
+        this.bookDAO = bookDAO;
     }
 
     @Override
@@ -28,6 +29,7 @@ public class BookBaseServiceImpl implements BookBaseService {
     }
 
     @Override
+    @Transactional
     public List<Book> getAllBooks() {
         return bookDAO.getAllBooks();
     }
@@ -36,6 +38,11 @@ public class BookBaseServiceImpl implements BookBaseService {
     @Transactional
     public void saveAuthor(Author author) {
         authorDAO.saveAuthor(author);
+    }
+
+    @Override
+    public void saveBook(Book book) {
+        bookDAO.saveBook(book);
     }
 
     @Override

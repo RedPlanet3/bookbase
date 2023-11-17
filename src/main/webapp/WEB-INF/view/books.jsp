@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Elena
@@ -22,34 +23,34 @@
 
     <c:forEach var="dsf" items="${allBooks}">
         <tr>
-            <td>${dsf.bookIdId}</td>
+            <td>${dsf.bookId}</td>
             <td>${dsf.bookName}</td>
             <td>${dsf.genre}</td>
         </tr>
     </c:forEach>
 </table>
-book: ${book.bookId} , ${book.bookName}
+<%--book: ${book.bookId} , ${book.bookName}--%>
 
-<form:form action="/books" modelAttribute="book">
-    Id <form:input path="bookId"/>
-    <br><br>
-    Name <form:input path="bookName"/>
-    <form:errors path="bookName"/>
-    <br><br>
-<%--    выпадающий список из enum--%>
-    Genre <form:select path="genre">
-    <form:options items="${book.genre}"/>
-    </form:select>
-
-
-<%--    &lt;%&ndash;    радиобаттон список из enum&ndash;%&gt;--%>
-<%--    Genre <form:radiobuttons path="genre"/>--%>
+<%--<form:form action="/books" modelAttribute="book">--%>
+<%--    Id <form:input path="bookId"/>--%>
+<%--    <br><br>--%>
+<%--    Name <form:input path="bookName"/>--%>
+<%--    <form:errors path="bookName"/>--%>
+<%--    <br><br>--%>
+<%--&lt;%&ndash;    выпадающий список из enum&ndash;%&gt;--%>
+<%--    Genre <form:select path="genre">--%>
+<%--    <form:options items="${book.genre}"/>--%>
+<%--    </form:select>--%>
 
 
+<%--&lt;%&ndash;    &lt;%&ndash;    радиобаттон список из enum&ndash;%&gt;&ndash;%&gt;--%>
+<%--&lt;%&ndash;    Genre <form:radiobuttons path="genre"/>&ndash;%&gt;--%>
 
-    <br><br>
-    <input type="submit" value="OK">
-</form:form>
+
+
+<%--    <br><br>--%>
+<%--    <input type="submit" value="OK">--%>
+<%--</form:form>--%>
 
 
 
