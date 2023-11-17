@@ -31,7 +31,7 @@ public class RestController {
         return autorList;
     }
 
-    //получение json с данными работника с помощью @PathVariable
+    //получение id работника из адресной строки с помощью @PathVariable
     @GetMapping("/authors/{id}")
     public Author getAuthor(@PathVariable int id) {
 

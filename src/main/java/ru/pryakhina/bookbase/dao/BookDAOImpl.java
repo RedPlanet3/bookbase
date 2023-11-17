@@ -26,6 +26,7 @@ public class BookDAOImpl implements BookDAO {
 
         List<Book> books = session.createQuery("from Book", Book.class)
                 .getResultList();
+
         return books;
     }
 }

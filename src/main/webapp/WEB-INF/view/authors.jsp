@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>--%>
 <%--
   Created by IntelliJ IDEA.
   User: Elena
@@ -22,24 +21,24 @@
         <th>Operations</th>
     </tr>
 
-<c:forEach var="dsf" items="${allAutors}">
-    <c:url var="updateButton" value="/updateAuthor">
-        <c:param name="authorId" value="${dsf.authorId}"/>
-    </c:url>
-    <c:url var="deleteButton" value="/deleteAuthor">
-        <c:param name="authorId" value="${dsf.authorId}"/>
-    </c:url>
-    <tr>
-        <td>${dsf.authorId}</td>
-        <td>${dsf.authorFullName}</td>
-        <td>
-            <input type="button" value="Update"
-                   onclick="window.location.href='${updateButton}'"/>
-            <input type="button" value="Delete"
-                   onclick="window.location.href='${deleteButton}'"/>
-        </td>
-    </tr>
-</c:forEach>
+    <c:forEach var="dsf" items="${allAutors}">
+        <c:url var="updateButton" value="/updateAuthor">
+            <c:param name="authorId" value="${dsf.authorId}"/>
+        </c:url>
+        <c:url var="deleteButton" value="/deleteAuthor">
+            <c:param name="authorId" value="${dsf.authorId}"/>
+        </c:url>
+        <tr>
+            <td>${dsf.authorId}</td>
+            <td>${dsf.authorFullName}</td>
+            <td>
+                <input type="button" value="Update"
+                       onclick="window.location.href='${updateButton}'"/>
+                <input type="button" value="Delete"
+                       onclick="window.location.href='${deleteButton}'"/>
+            </td>
+        </tr>
+    </c:forEach>
 </table>
 <br>
 <input type="button" value="Add"

@@ -1,15 +1,10 @@
 package ru.pryakhina.bookbase.models;
 
-
-//import org.hibernate.annotations.Table;
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "author")
 public class Author implements Comparable{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "authorid")

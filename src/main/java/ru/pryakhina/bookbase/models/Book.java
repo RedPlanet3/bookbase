@@ -1,6 +1,5 @@
 package ru.pryakhina.bookbase.models;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -18,19 +17,18 @@ public class Book {
 //    private List<Autor> autors;
 
     @Column(name = "genre")
-    private Genre genre;
-    public Genre getGenre() {
+    private String genre;
+    public String getGenre() {
         return genre;
     }
 
-    public void setGenre(Genre genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 
 
 
-    public Book(int bookId, String bookName, Genre genre) {
-        this.bookId = bookId;
+    public Book(String bookName, String genre) {
         this.bookName = bookName;
         this.genre = genre;
     }
