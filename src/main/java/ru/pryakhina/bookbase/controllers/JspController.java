@@ -55,12 +55,6 @@ public class JspController {
         return "authors";
     }
 
-//    @GetMapping("/JSauthors")
-//    public List<Author> getJSAutors(Model model) {
-//        List<Author> autorList =  bookBaseService.getAllAuthors();
-//        return autorList;
-//    }
-
     @PostMapping("/bookadd")
     public String bookAdd () {
         return "books";
@@ -97,22 +91,4 @@ public class JspController {
         return "redirect:/authors";
     }
 
-    @GetMapping("/booksaddnosql")
-    public String bookAddNoSql(
-//            @RequestParam("bookId") int bookId,
-//            @RequestParam("bookName") String bookName,
-//            @RequestParam("genre") Genre genre,
-//            BindingResult bindingResult, Model model
-    ){
-
-//        if (bindingResult.hasErrors())
-//            return "booksaddnosql";
-//        else {
-//            Book selectBook = new Book(bookId, bookName, genre);
-//            model.addAttribute("book", selectBook);
-//
-//            return "books";
-//        }
-        return "booksaddnosql";
-    }
 }
