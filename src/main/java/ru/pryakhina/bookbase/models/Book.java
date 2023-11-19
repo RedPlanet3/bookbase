@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book implements Comparable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bookid")
@@ -52,6 +52,12 @@ public class Book {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Book other = (Book)o;
+        return this.bookId - other.bookId;
     }
 
 //    public List<Autor> getAutors() {

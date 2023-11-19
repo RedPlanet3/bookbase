@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import ru.pryakhina.bookbase.models.Author;
 import ru.pryakhina.bookbase.models.Book;
 
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -26,6 +27,7 @@ public class BookDAOImpl implements BookDAO {
 
         List<Book> books = session.createQuery("from Book", Book.class)
                 .getResultList();
+        Collections.sort(books);
         return books;
     }
 
@@ -33,5 +35,18 @@ public class BookDAOImpl implements BookDAO {
     public void saveBook(Book book) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(book);
+    }
+
+    @Override
+    public void delBook(Book book) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(book);
+    }
+
+    @Override
+    public Book getBook(int bookId) {
+        Session session = sessionFactory.getCurrentSession();
+        Book book = session.get(Book.class, bookId);
+        return book;
     }
 }

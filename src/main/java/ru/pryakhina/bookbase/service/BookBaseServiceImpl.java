@@ -48,6 +48,12 @@ public class BookBaseServiceImpl implements BookBaseService {
 
     @Override
     @Transactional
+    public void delBook(Book book) {
+        bookDAO.delBook(book);
+    }
+
+    @Override
+    @Transactional
     public void delAuthor(Author author) {
         authorDAO.delAuthor(author);
     }
@@ -56,5 +62,11 @@ public class BookBaseServiceImpl implements BookBaseService {
     @Transactional
     public Author getAuthor(int authorId) {
         return authorDAO.getAuthor(authorId);
+    }
+
+    @Override
+    @Transactional
+    public Book getBook(int id) {
+        return bookDAO.getBook(id);
     }
 }

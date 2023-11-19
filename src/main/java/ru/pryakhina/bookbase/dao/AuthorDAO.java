@@ -13,4 +13,5 @@ public interface AuthorDAO {
     public void delAuthor(Author author);
 
     public Author getAuthor(int authorId);
+
 }

@@ -45,9 +45,18 @@ public class RestController {
     }
     @PostMapping("/book")
     public int addBook(@RequestBody Book book) {
-
         bookBaseService.saveBook(book);
         return book.getBookId();
     }
-
+    @PutMapping("/book")
+    public int updateBook(@RequestBody Book book) {
+        bookBaseService.saveBook(book);
+        return book.getBookId();
+    }
+    @DeleteMapping("/book/{id}")
+    public String deleteBook(@PathVariable int id) {
+        Book delBook = bookBaseService.getBook(id);
+        bookBaseService.delBook(delBook);
+        return "The book id = " + id + " deleted!";
+    }
 }
