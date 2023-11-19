@@ -43,11 +43,32 @@ public class RestController {
         }
         return author;
     }
-    @PostMapping("/book")
-    public int addBook(@RequestBody Book book) {
 
+    //получение json с данными работника с помощью @PathVariable
+    @GetMapping("/books/{id}")
+    public Book getBook(@PathVariable int id) {
+
+        Book book =  bookBaseService.getBook(id);
+        if (book == null)
+        {
+            throw new NoSuchAuthorException("There is no author with ID = " + id + " in Database");
+        }
+        return book;
+    }
+    @PostMapping("/books")
+    public int addBook(@RequestBody Book book) {
         bookBaseService.saveBook(book);
         return book.getBookId();
     }
-
+    @PutMapping("/books")
+    public int updateBook(@RequestBody Book book) {
+        bookBaseService.saveBook(book);
+        return book.getBookId();
+    }
+    @DeleteMapping("/books/{id}")
+    public String deleteBook(@PathVariable int id) {
+        Book delBook = bookBaseService.getBook(id);
+        bookBaseService.delBook(delBook);
+        return "The book id = " + id + " deleted!";
+    }
 }
