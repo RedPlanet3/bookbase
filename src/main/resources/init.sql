@@ -2,8 +2,12 @@ CREATE TABLE IF NOT EXISTS public.book_author
 (
     authorid integer NOT NULL,
     bookid integer NOT NULL,
-    CONSTRAINT book_author_pkey PRIMARY KEY (authorid, bookid)
+    CONSTRAINT book_author_pkey PRIMARY KEY (authorid, bookid),
+    FOREIGN KEY (authorid) REFERENCES public.author(authorid),
+    FOREIGN KEY (bookid) REFERENCES public.book(bookid)
 );
+
+DROP TABLE public.book_author;
 
 CREATE TABLE IF NOT EXISTS public.book
 (

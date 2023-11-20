@@ -1,6 +1,7 @@
 package ru.pryakhina.bookbase.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "author")
@@ -13,9 +14,9 @@ public class Author implements Comparable{
     @Column(name = "authorfullname")
     String authorFullName;
 
-//    @Column
-//    @ManyToMany
-//    List<Book> booksList;
+    @ManyToMany
+    @JoinColumn(name = "bookId")
+    List<Book> booksList;
 
     public Author(int authorId, String authorFullName) {
         this.authorId = authorId;
