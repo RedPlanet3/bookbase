@@ -2,6 +2,10 @@ package ru.pryakhina.bookbase.controllers;
 
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+import ru.pryakhina.bookbase.dto.BookDto;
 import ru.pryakhina.bookbase.exception_handing.NoSuchAuthorException;
 import ru.pryakhina.bookbase.models.Author;
 import ru.pryakhina.bookbase.models.Book;
@@ -13,6 +17,7 @@ import java.util.List;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
     BookBaseService bookBaseService;
+
 
     public RestController(BookBaseService bookBaseService) {
         this.bookBaseService = bookBaseService;
@@ -46,11 +51,10 @@ public class RestController {
 
     //получение json с данными работника с помощью @PathVariable
     @GetMapping("/books/{id}")
-    public Book getBook(@PathVariable int id) {
+    public BookDto getBook(@PathVariable int id) {
 
-        Book book =  bookBaseService.getBook(id);
-        if (book == null)
-        {
+        BookDto book =  bookBaseService.getBookDto(id);
+        if (book == null) {
             throw new NoSuchAuthorException("There is no author with ID = " + id + " in Database");
         }
         return book;
@@ -71,4 +75,26 @@ public class RestController {
         bookBaseService.delBook(delBook);
         return "The book id = " + id + " deleted!";
     }
+
+
+    //получение json с данными работника с помощью @PathVariable
+    @GetMapping("/books/{id}/wiki")
+    public String getWikiBook(@PathVariable int id) {
+
+        final RestTemplate restTemplate = new RestTemplate();
+        String bookName = bookBaseService.getBook(id).getBookName();
+
+        UriComponents url = UriComponentsBuilder.fromUriString("https://en.wikipedia.org/w/api.php")
+                .queryParam("action", "query")
+                .queryParam("list", "search")
+                .queryParam("srsearch", bookName)
+                .queryParam("format", "json")
+                .build();
+
+        String forObject = restTemplate.getForObject(url.toUri(), String.class);
+        return forObject;
+    }
 }
+
+//https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Nelson_Mandela&utf8=&format=json
+//https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Nelson_Mandela&format=json

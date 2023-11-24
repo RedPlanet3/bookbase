@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.pryakhina.bookbase.dao.AuthorDAO;
 import ru.pryakhina.bookbase.dao.BookDAO;
+import ru.pryakhina.bookbase.dto.AuthorDto;
+import ru.pryakhina.bookbase.dto.BookDto;
 import ru.pryakhina.bookbase.models.Author;
 import ru.pryakhina.bookbase.models.Book;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -69,5 +72,36 @@ public class BookBaseServiceImpl implements BookBaseService {
     @Transactional
     public Book getBook(int id) {
         return bookDAO.getBook(id);
+    }
+
+    @Override
+    @Transactional
+    public BookDto getBookDto(int id) {
+        Book book = bookDAO.getBook(id);
+
+        BookDto bookDto = new BookDto();
+        bookDto.setBookId(book.getBookId());
+        bookDto.setBookName(book.getBookName());
+        bookDto.setGenre(book.getGenre());
+        bookDto.setAuthors(mapAuthorsWithoutBook(book.getAuthors()));
+        return bookDto;
+    }
+
+    private List<AuthorDto> mapAuthorsWithoutBook(List<Author> authors) {
+        if (authors == null || authors.isEmpty()) {
+            return null;
+        }
+
+        List<AuthorDto> answer = new ArrayList<>();
+        for (Author a: authors) {
+            AuthorDto dto = new AuthorDto();
+            dto.setAuthorId(a.getAuthorId());
+            dto.setAuthorFullName(a.getAuthorFullName());
+            if (a.getBooksList() != null && !a.getBooksList().isEmpty()) {
+                dto.setBooksCount(a.getBooksList().size());
+            }
+            answer.add(dto);
+        }
+        return answer;
     }
 }

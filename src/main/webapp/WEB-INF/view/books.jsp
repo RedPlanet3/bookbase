@@ -46,13 +46,7 @@
 
 <%--&lt;%&ndash;    &lt;%&ndash;    радиобаттон список из enum&ndash;%&gt;&ndash;%&gt;--%>
 <%--&lt;%&ndash;    Genre <form:radiobuttons path="genre"/>&ndash;%&gt;--%>
-<<<<<<< HEAD
-<%--    --%>
-=======
 
-
-
->>>>>>> dev
 <%--    <br><br>--%>
 <%--    <input type="submit" value="OK">--%>
 <%--</form:form>--%>

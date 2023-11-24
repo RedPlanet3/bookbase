@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import ru.pryakhina.bookbase.models.Author;
 import ru.pryakhina.bookbase.models.Book;
 
 import java.util.Collections;
@@ -28,9 +27,12 @@ public class BookDAOImpl implements BookDAO {
         List<Book> books = session.createQuery("from Book", Book.class)
                 .getResultList();
 
+//        Book book = session.get(Book.class, 1);
+//        List<Author> authors = book.getAuthorList();
+//        System.out.println("!");
         Collections.sort(books);
-
-        return books;
+return null;
+//        return books;
     }
 
     @Override

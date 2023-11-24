@@ -1,5 +1,6 @@
 package ru.pryakhina.bookbase.service;
 
+import ru.pryakhina.bookbase.dto.BookDto;
 import ru.pryakhina.bookbase.models.Author;
 import ru.pryakhina.bookbase.models.Book;
 
@@ -17,4 +18,7 @@ public interface BookBaseService {
     public void delAuthor(Author author);
     public Author getAuthor(int authorId);
     public Book getBook(int id);
+
+    @Transactional
+    BookDto getBookDto(int id);
 }
